@@ -6,11 +6,14 @@ import { HttpsProxyAgent } from "https-proxy-agent";
 // Load environment variables from .env file
 dotenv.config();
 
+// For self-signed certifiactes in the SSL chain
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+
 // Define proxy URL
 const proxyUrl = `http://${process.env.PROXY_USERNAME}:${process.env.PROXY_PASSWORD}@webproxy.prod.d003.loc:8080`;
 
 // Create proxy agents for HTTP and HTTPS
-const httpsAgent = new HttpsProxyAgent(proxyUrl, { rejectUnauthorized: false });
+const httpsAgent = new HttpsProxyAgent(proxyUrl);
 
 // Initialize the OpenAI client with API key from environment variables and proxy configuration
 const client = new OpenAI({
