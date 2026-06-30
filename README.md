@@ -29,7 +29,7 @@ Run the example script:
 npm start
 ```
 
-This will execute a simple prompt asking for a one-sentence bedtime story about a unicorn using `gpt-4o-mini`.
+This will execute a simple prompt asking for a one-sentence bedtime story about a unicorn using `gpt-5.4-mini`.
 
 ## About This Example
 

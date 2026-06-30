@@ -16,7 +16,7 @@ const client = new OpenAI({
 async function generateResponse() {
   try {
     const response = await client.responses.create({
-      model: "gpt-4o-mini",
+      model: "gpt-5.4-mini",
       temperature: 0.3, // Low temperature for more deterministic outputs
       // `input` can be a plain string or, as here, a list of role-based
       // messages so you can see the system / user message flow.
