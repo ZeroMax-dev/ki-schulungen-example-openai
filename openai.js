@@ -3,23 +3,28 @@ import OpenAI from "openai";
 import dotenv from "dotenv";
 
 // Load environment variables from .env file
-dotenv.config();
+dotenv.config({ quiet: true });
 
 // Initialize the OpenAI client with API key from environment variables
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Define the main function to demonstrate OpenAI API usage
-async function generateCompletion() {
+// Define the main function to demonstrate OpenAI API usage.
+// We use the Responses API (client.responses.create), OpenAI's current
+// recommended interface. Docs: https://developers.openai.com/api/docs/guides/text
+async function generateResponse() {
   try {
-    const completion = await client.chat.completions.create({
-      model: "gpt-4o",
+    const response = await client.responses.create({
+      model: "gpt-4o-mini",
       temperature: 0.3, // Low temperature for more deterministic outputs
-      messages: [
+      // `input` can be a plain string or, as here, a list of role-based
+      // messages so you can see the system / user message flow.
+      input: [
         {
           role: "system",
-          content: "You are a helpful, creative, and concise assistant that specializes in writing short stories for children."
+          content:
+            "You are a helpful, creative, and concise assistant that specializes in writing short stories for children.",
         },
         {
           role: "user",
@@ -28,11 +33,12 @@ async function generateCompletion() {
       ],
     });
 
-    console.log(completion.choices[0].message.content);
+    // `output_text` is a convenience accessor that joins all text output.
+    console.log(response.output_text);
   } catch (error) {
     console.error("Error occurred:", error);
   }
 }
 
 // Execute the function
-generateCompletion();
+generateResponse();

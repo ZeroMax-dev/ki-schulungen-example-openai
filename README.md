@@ -1,10 +1,10 @@
-# OpenAI Chat Completion Example
+# OpenAI Responses API Example
 
-A simple Node.js application demonstrating the OpenAI API with a basic chat completion example.
+A simple Node.js application demonstrating the OpenAI API with a basic text-generation example using the Responses API (`client.responses.create`).
 
 ## Prerequisites
 
-- Node.js (version 14.x or higher recommended)
+- Node.js (version 20.x or higher recommended)
 - An OpenAI API key
 
 ## Setup
@@ -29,7 +29,7 @@ Run the example script:
 npm start
 ```
 
-This will execute a simple prompt asking for a one-sentence bedtime story about a unicorn using GPT-4o.
+This will execute a simple prompt asking for a one-sentence bedtime story about a unicorn using `gpt-4o-mini`.
 
 ## About This Example
 
