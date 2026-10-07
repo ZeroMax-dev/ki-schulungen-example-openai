@@ -1,9 +1,8 @@
-// Import the required packages
-import OpenAI from "openai";
-import dotenv from "dotenv";
-
 // Load environment variables from .env file
-dotenv.config({ quiet: true });
+import "dotenv/config";
+
+// Import the OpenAI SDK
+import OpenAI from "openai";
 
 // Initialize the OpenAI client with API key from environment variables
 const client = new OpenAI({

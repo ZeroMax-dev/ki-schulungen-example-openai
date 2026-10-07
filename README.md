@@ -4,7 +4,7 @@ A simple Node.js application demonstrating the OpenAI API with a basic text-gene
 
 ## Prerequisites
 
-- Node.js (version 20.x or higher recommended)
+- Node.js 22 or newer (required by the `openai` v7 SDK)
 - An OpenAI API key
 
 ## Setup
