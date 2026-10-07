@@ -15,8 +15,11 @@ const client = new OpenAI({
 async function generateResponse() {
   try {
     const response = await client.responses.create({
-      model: "gpt-5.4-mini",
-      temperature: 0.3, // Low temperature for more deterministic outputs
+      model: "gpt-6-luna",
+      // GPT-6 models reason before they answer. `reasoning.effort` trades
+      // quality for speed/cost: "none" | "low" | "medium" (default) | "high" | ...
+      // Note: `temperature` is only accepted with effort "none".
+      reasoning: { effort: "medium" },
       // `input` can be a plain string or, as here, a list of role-based
       // messages so you can see the system / user message flow.
       input: [

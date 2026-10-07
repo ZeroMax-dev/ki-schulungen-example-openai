@@ -29,7 +29,7 @@ Run the example script:
 npm start
 ```
 
-This will execute a simple prompt asking for a one-sentence bedtime story about a unicorn using `gpt-5.4-mini`.
+This will execute a simple prompt asking for a one-sentence bedtime story about a unicorn using `gpt-6-luna`.
 
 ## About This Example
 
@@ -37,14 +37,14 @@ The script demonstrates:
 - Loading environment variables with dotenv
 - Initializing the OpenAI client
 - Using system prompts to guide the AI's behavior
-- Setting temperature for controlling randomness (lower = more deterministic)
+- Setting the reasoning effort (`reasoning.effort`) to trade quality for speed and cost
 - Error handling for API requests
 
 ## Modifying the Example
 
 You can modify the `openai.js` file to:
 - Change the prompt
-- Adjust the temperature parameter (0-1)
+- Adjust the reasoning effort (`none`, `low`, `medium`, `high`); `temperature` (0-2) only works with effort `none`
 - Try different models
 - Customize the system prompt
 - Add more messages to the conversation
